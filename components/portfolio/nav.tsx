@@ -10,7 +10,9 @@ const THEME_CHANGE_EVENT = "portfolio-theme-change";
 
 function getCurrentTheme(): Theme {
   if (typeof document === "undefined") return "dark";
-  return document.documentElement.classList.contains("light") ? "light" : "dark";
+  return document.documentElement.classList.contains("light")
+    ? "light"
+    : "dark";
 }
 
 function subscribeToTheme(listener: () => void) {
@@ -19,7 +21,11 @@ function subscribeToTheme(listener: () => void) {
 }
 
 export function PortfolioNav() {
-  const theme = useSyncExternalStore(subscribeToTheme, getCurrentTheme, () => "dark");
+  const theme = useSyncExternalStore(
+    subscribeToTheme,
+    getCurrentTheme,
+    () => "dark",
+  );
 
   const toggleTheme = () => {
     const nextTheme = theme === "dark" ? "light" : "dark";
@@ -29,7 +35,11 @@ export function PortfolioNav() {
   };
 
   return (
-    <nav className="nav-shell" aria-label="Primary navigation" data-motion="nav">
+    <nav
+      className="nav-shell"
+      aria-label="Primary navigation"
+      data-motion="nav"
+    >
       <div className="nav-inner">
         <a className="brand" href="#top" aria-label="Fady Wafa Nagy, home">
           <span className="brand-mark">FW</span>
@@ -57,7 +67,9 @@ export function PortfolioNav() {
             className="icon-button theme-toggle"
             type="button"
             onClick={toggleTheme}
-            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            aria-label={
+              theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+            }
             title={theme === "dark" ? "Light mode" : "Dark mode"}
           >
             {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}

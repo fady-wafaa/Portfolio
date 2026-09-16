@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const jsonLd = { "@context": "https://schema.org", "@type": "Person", name: "Fady Wafa Nagy", jobTitle: "Frontend Software Engineer", url: "https://www.linkedin.com/in/fady-wafa/", sameAs: ["https://github.com/fady-wafaa", "https://www.linkedin.com/in/fady-wafa/"] };
-  const themeScript = `try{const t=localStorage.getItem("portfolio-theme");const p=window.matchMedia("(prefers-color-scheme: light)").matches;if(t==="light"||(!t&&p)){document.documentElement.classList.add("light")}}catch{}`;
+  const themeScript = `try{const t=localStorage.getItem("portfolio-theme");document.documentElement.classList.toggle("light",t==="light")}catch{}`;
 
   return (
     <html lang="en" suppressHydrationWarning>
