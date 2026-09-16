@@ -1,3 +1,46 @@
 export function ProfileMap() {
-  return <div className="map-stage" aria-hidden="true"><svg viewBox="0 0 680 360"><defs><radialGradient id="mapGlow"><stop offset="0" stopColor="#00d9e8" stopOpacity=".25"/><stop offset="1" stopColor="#00d9e8" stopOpacity="0"/></radialGradient></defs><g className="map-grid"><path d="M0 60h680M0 120h680M0 180h680M0 240h680M0 300h680M85 0v360M170 0v360M255 0v360M340 0v360M425 0v360M510 0v360M595 0v360" /></g><circle cx="340" cy="180" r="150" fill="url(#mapGlow)" /><g className="zones"><path d="M86 80l134-35 101 82-60 108-149-28z"/><path d="M338 74l135 29 84 112-111 79-113-66z"/><path d="M215 244l119-48 110 98-150 39z"/></g><g className="routes"><path d="M90 255C185 215 198 120 310 157S473 277 603 111"/><path d="M112 125c91 37 148 7 220 79s144 48 229 91"/></g><g className="nodes"><circle cx="90" cy="255" r="5"/><circle cx="180" cy="190" r="4"/><circle cx="310" cy="157" r="6"/><circle cx="405" cy="230" r="4"/><circle cx="505" cy="214" r="5"/><circle cx="603" cy="111" r="4"/><circle cx="112" cy="125" r="4"/><circle cx="332" cy="204" r="8"/><circle cx="561" cy="295" r="5"/></g><g className="clusters"><circle cx="332" cy="204" r="30"/><circle cx="505" cy="214" r="18"/><circle cx="180" cy="190" r="15"/></g></svg><div className="map-label label-a">CAIRO EAST HUB <b>12 drivers</b></div><div className="map-label label-b">ZONE B <b>24 tasks</b></div><div className="map-label label-c">GEOFENCE <b>active</b></div></div>;
+  return (
+    <div className="map-stage map-live" aria-hidden="true">
+      <svg viewBox="0 0 680 360">
+        <defs>
+          <radialGradient id="mapGlow">
+            <stop offset="0" stopColor="#00d9e8" stopOpacity=".25" />
+            <stop offset="1" stopColor="#00d9e8" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+        <g className="map-grid">
+          <path d="M0 60h680M0 120h680M0 180h680M0 240h680M0 300h680M85 0v360M170 0v360M255 0v360M340 0v360M425 0v360M510 0v360M595 0v360" />
+        </g>
+        <circle cx="340" cy="180" r="150" fill="url(#mapGlow)" />
+        <g className="zones">
+          <path d="M86 80l134-35 101 82-60 108-149-28z" />
+          <path d="M338 74l135 29 84 112-111 79-113-66z" />
+          <path d="M215 244l119-48 110 98-150 39z" />
+        </g>
+        <g className="routes">
+          <path d="M90 255C185 215 198 120 310 157S473 277 603 111" />
+          <path d="M112 125c91 37 148 7 220 79s144 48 229 91" />
+        </g>
+        <g className="nodes">
+          <circle cx="90" cy="255" r="5" />
+          <circle cx="180" cy="190" r="4" />
+          <circle cx="310" cy="157" r="6" />
+          <circle cx="405" cy="230" r="4" />
+          <circle cx="505" cy="214" r="5" />
+          <circle cx="603" cy="111" r="4" />
+          <circle cx="112" cy="125" r="4" />
+          <circle cx="332" cy="204" r="8" />
+          <circle cx="561" cy="295" r="5" />
+        </g>
+        <g className="clusters">
+          <circle cx="332" cy="204" r="30" />
+          <circle cx="505" cy="214" r="18" />
+          <circle cx="180" cy="190" r="15" />
+        </g>
+      </svg>
+      <div className="map-label label-a">REGIONAL HUB <b>Regional Hub</b></div>
+      <div className="map-label label-b">SERVICE ZONE <b>10–25 demo tasks</b></div>
+      <div className="map-label label-c">GEOFENCE <b>demo zone</b></div>
+    </div>
+  );
 }

@@ -1,49 +1,49 @@
 # Fady Wafa Nagy — Portfolio
 
-موقع شخصي احترافي لعرض خبرة **Fady Wafa Nagy** كـ **Frontend Software Engineer**، مع التركيز على بناء واجهات SaaS قابلة للتوسع، الأداء العالي، والهندسة المعمارية الحديثة باستخدام React و Next.js و TypeScript.
+A professional personal site showcasing **Fady Wafa Nagy** as a **Frontend Software Engineer**, focused on building scalable SaaS interfaces, high performance, and modern frontend architecture with React, Next.js, and TypeScript.
 
-## نبذة عن البرتفوليو
+## About This Portfolio
 
-هذا المشروع ليس مجرد صفحة سيرة ذاتية — بل عرض تفاعلي لمسار هندسي حقيقي في منتجات SaaS الإنتاجية. يبرز:
+This project is more than a résumé page — it is an interactive showcase of real engineering work on production SaaS products. It highlights:
 
-- **الخبرة العملية** في منصات B2B عالية الحركة
-- **دراسة حالة SuiteFleet** كمشروع رئيسي (Azdan)
-- **التطور المعماري** من React 16 إلى React 19 مع TypeScript
-- **تحسينات الأداء** القابلة للقياس (+20%)
-- **المهارات التقنية** منظمة حسب مسؤوليات الهندسة وليس كقائمة شعارات
+- **Hands-on experience** on high-traffic B2B platforms
+- **SuiteFleet case study** as the flagship project (Azdan)
+- **Architectural evolution** from React 16 to React 19 with TypeScript
+- **Measurable performance gains** (+20%)
+- **Technical skills** organized by engineering responsibility, not a logo wall
 
-## الخبرة المهنية
+## Professional Experience
 
-| الفترة | المنصب | الشركة | الملخص |
-|--------|--------|--------|--------|
-| نوفمبر 2022 — الآن | Frontend Software Engineer | Azdan · دبي (عن بُعد) | العمل على **SuiteFleet** — منصة لوجستيات SaaS متعددة المستأجرين بحركة تتجاوز **1M+ طلب/يوم** |
-| نوفمبر 2021 — نوفمبر 2022 | NetSuite Developer | Azdan · دبي (عن بُعد) | تخصيصات NetSuite ERP، أتمتة Workflows، وواجهات React متكاملة مع خدمات NetSuite |
-| مشاريع متفرقة | Freelance Frontend Developer | عن بُعد | واجهات ويب بـ JavaScript/React، مع إرشاد المبتدئين |
+| Period | Role | Company | Summary |
+|--------|------|---------|---------|
+| Nov 2022 — Present | Frontend Software Engineer | Azdan · Dubai (Remote) | Working on **SuiteFleet** — a multi-tenant logistics SaaS platform handling **1M+ requests/day** |
+| Nov 2021 — Nov 2022 | NetSuite Developer | Azdan · Dubai (Remote) | NetSuite ERP customizations, workflow automation, and React interfaces integrated with NetSuite services |
+| Project-based | Freelance Frontend Developer | Remote | Web interfaces with JavaScript/React, plus mentoring junior developers |
 
-### أبرز الإنجازات
+### Key Achievements
 
-- **4+ سنوات** خبرة في بناء وتحديث تطبيقات SaaS إنتاجية
-- **React 16 → React 19** — ترقية تدريجية للواجهة الأمامية
-- **+20%** تحسين أداء التطبيق (Lighthouse / Core Web Vitals)
-- **TypeScript** — اعتماد عقود typed للـ UI والـ state و REST APIs
-- **AG Grid** — واجهات بيانات ثقيلة مع server-side loading وفلترة وفرز
-- **RBAC & Multi-tenancy** — صلاحيات وإعدادات لكل مستأجر
-- **RTL** — دعم العربية والإنجليزية في نفس المنصة
+- **4+ years** building and modernizing production SaaS applications
+- **React 16 → React 19** — staged frontend modernization
+- **+20%** application performance improvement (Lighthouse / Core Web Vitals)
+- **TypeScript** — typed contracts for UI, state, and REST APIs
+- **AG Grid** — data-heavy interfaces with server-side loading, filtering, and sorting
+- **RBAC & Multi-tenancy** — role-based access and per-tenant configuration
+- **RTL** — English and Arabic support on the same platform
 
-## أقسام الموقع
+## Site Sections
 
-| القسم | المعرف | المحتوى |
-|-------|--------|---------|
-| **Hero** | `#top` | التعريف، العنوان الرئيسي، روابط السيرة والـ GitHub و LinkedIn، وبطاقة Architecture & Scale Profile |
-| **Metrics** | — | أرقام سريعة: 4+ سنوات، 1M+ طلب/يوم، +20% أداء، React 16→19 |
-| **SuiteFleet** | `#suitefleet` | دراسة الحالة الرئيسية: السياق، التحدي، المساهمة، الأنظمة، والنتائج + تصور Dispatch Workbench |
-| **Architecture** | `#architecture` | تطور معماري من Legacy React 16 إلى بنية typed و modular |
-| **Performance** | `#performance` | مسار التحسين: Code Splitting، Caching، AG Grid → +20% |
-| **Experience** | `#experience` | Timeline للخبرة المهنية (Azdan، NetSuite، Freelance) |
-| **Stack** | `#stack` | المهارات التقنية + Engineering Philosophy (4 مبادئ) |
-| **Contact** | `#contact` | البريد، السيرة، LinkedIn، GitHub، ومشاركة الرابط |
+| Section | Anchor | Content |
+|---------|--------|---------|
+| **Hero** | `#top` | Introduction, headline, résumé/GitHub/LinkedIn links, and the Architecture & Scale Profile card |
+| **Metrics** | — | Quick stats: 4+ years, 1M+ requests/day, +20% performance, React 16→19 |
+| **SuiteFleet** | `#suitefleet` | Flagship case study: context, challenge, contribution, systems, results + Dispatch Workbench visualization |
+| **Architecture** | `#architecture` | Architectural evolution from legacy React 16 to a typed, modular system |
+| **Performance** | `#performance` | Optimization path: Code Splitting, Caching, AG Grid → +20% |
+| **Experience** | `#experience` | Professional timeline (Azdan, NetSuite, Freelance) |
+| **Stack** | `#stack` | Technical skills + Engineering Philosophy (4 principles) |
+| **Contact** | `#contact` | Email, résumé, LinkedIn, GitHub, and share link |
 
-## المكدس التقني
+## Tech Stack
 
 ### Frontend
 React 19 · Next.js 16 · TypeScript · Tailwind CSS · shadcn/ui · Lucide Icons
@@ -54,52 +54,52 @@ TanStack Query · Zustand · Redux Toolkit · REST APIs · OpenAPI
 ### UI & Performance
 AG Grid · GSAP · Lighthouse · Code Splitting · Lazy Loading · WCAG
 
-### البنية التحتية
+### Infrastructure
 Vinext · Vite · Cloudflare Workers · Wrangler
 
-## هيكل المشروع
+## Project Structure
 
 ```
 app/
-  page.tsx          # الصفحة الرئيسية — كل الأقسام والمحتوى
-  layout.tsx        # Metadata و SEO (Open Graph + JSON-LD)
-  globals.css       # التنسيقات والتصميم
+  page.tsx          # Main page — all sections and content
+  layout.tsx        # Metadata and SEO (Open Graph + JSON-LD)
+  globals.css       # Styles and design system
 components/
-  share-portfolio.tsx   # زر مشاركة الرابط (Web Share API / Clipboard)
-  profile-map.tsx       # خريطة SVG تصورية لـ SuiteFleet Workbench
+  share-portfolio.tsx   # Share button (Web Share API / Clipboard)
+  profile-map.tsx       # Conceptual SVG map for SuiteFleet Workbench
 public/
-  Fady_Wafa_Resume.pdf  # السيرة الذاتية للتحميل
+  Fady_Wafa_Resume.pdf  # Downloadable résumé
 ```
 
-## التشغيل المحلي
+## Local Development
 
-**المتطلبات:** Node.js `>=22.13.0` · pnpm
+**Requirements:** Node.js `>=22.13.0` · pnpm
 
 ```bash
-# تثبيت الاعتماديات
+# Install dependencies
 pnpm run install:ci
 
-# تشغيل وضع التطوير
+# Start development server
 pnpm run dev
 
-# بناء المشروع
+# Build for production
 pnpm run build
 
-# معاينة البناء محلياً
+# Preview production build locally
 pnpm run start
 ```
 
-يفتح التطوير على `http://127.0.0.1:5173` افتراضياً.
+Development runs at `http://127.0.0.1:5173` by default.
 
-## التواصل
+## Contact
 
 | | |
 |---|---|
 | **Email** | fadywafaa36@gmail.com |
 | **LinkedIn** | [linkedin.com/in/fady-wafa](https://www.linkedin.com/in/fady-wafa/) |
 | **GitHub** | [github.com/fady-wafaa](https://github.com/fady-wafaa) |
-| **الموقع** | SuiteFleet: [suitefleet.com](https://www.suitefleet.com/) |
-| **الموقع** | القاهرة، مصر — متاح للعمل عن بُعد أو الانتقال |
+| **Product** | SuiteFleet: [suitefleet.com](https://www.suitefleet.com/) |
+| **Location** | Cairo, Egypt — open to remote work and relocation |
 
 ---
 
