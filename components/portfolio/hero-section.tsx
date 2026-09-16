@@ -10,7 +10,7 @@ import {
   TerminalSquare,
   Zap,
 } from "lucide-react";
-import { heroTechTags, profile } from "@/lib/portfolio-data";
+import { profile } from "@/lib/portfolio-data";
 
 const profileItems = [
   {

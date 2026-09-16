@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 
 const REVEAL_OPTIONS: IntersectionObserverInit = {
-  threshold: 0.12,
+  threshold: [0, 0.08, 0.18, 0.32],
   rootMargin: "0px 0px -6% 0px",
 };
 
@@ -44,7 +44,7 @@ export function PortfolioMotion() {
 
       gsapCtx = gsap.context(() => {
         if (reducedMotion) {
-          gsap.set("[data-motion]", { opacity: 1, y: 0, clearProps: "transform" });
+          gsap.set("[data-motion]", { opacity: 1, x: 0, y: 0, clearProps: "transform" });
           document.querySelectorAll("[data-motion]").forEach((el) => {
             el.classList.add("motion-in");
           });
@@ -59,40 +59,60 @@ export function PortfolioMotion() {
         const revealY = isMobile ? 16 : 24;
         const revealDuration = isMobile ? 0.45 : 0.6;
 
-        const heroTimeline = gsap.timeline({ defaults: { ease: "power2.out" } });
-        heroTimeline
-          .from("[data-motion='nav']", { opacity: 0, y: -10, duration: 0.32 })
-          .from("[data-motion='hero-label']", { opacity: 0, y: 14, duration: 0.28 }, "-=0.12")
-          .from(
-            "[data-motion='hero-headline'] .hero-line",
-            { opacity: 0, y: 18, duration: 0.32, stagger: 0.07 },
-            "-=0.08",
-          )
-          .from("[data-motion='hero-lede']", { opacity: 0, y: 14, duration: 0.28 }, "-=0.1")
-          .from(
-            "[data-motion='hero-actions'] > *",
-            { opacity: 0, y: 10, duration: 0.24, stagger: heroStagger },
-            "-=0.08",
-          )
-          .from("[data-motion='hero-panel']", { opacity: 0, y: 20, duration: 0.36 }, "-=0.18")
-          .from(
-            "[data-motion='metric-item']",
-            { opacity: 0, y: 14, duration: 0.3, stagger: heroStagger },
-            "-=0.16",
-          );
+        const heroTargets = [
+          "[data-motion='hero-label']",
+          "[data-motion='hero-headline'] .hero-line",
+          "[data-motion='hero-lede']",
+          "[data-motion='hero-actions'] > *",
+          "[data-motion='hero-panel']",
+        ];
 
-        if (heroTimeline.duration() > 1.2) {
-          heroTimeline.timeScale(heroTimeline.duration() / 1.2);
-        }
+        const heroIn = () => {
+          const timeline = gsap.timeline({ defaults: { ease: "power2.out", overwrite: "auto" } });
+          timeline
+            .to("[data-motion='hero-label']", { opacity: 1, y: 0, duration: 0.28 })
+            .to(
+              "[data-motion='hero-headline'] .hero-line",
+              { opacity: 1, y: 0, duration: 0.32, stagger: 0.07 },
+              "-=0.1",
+            )
+            .to("[data-motion='hero-lede']", { opacity: 1, y: 0, duration: 0.28 }, "-=0.08")
+            .to(
+              "[data-motion='hero-actions'] > *",
+              { opacity: 1, y: 0, duration: 0.24, stagger: heroStagger },
+              "-=0.06",
+            )
+            .to("[data-motion='hero-panel']", { opacity: 1, y: 0, duration: 0.36 }, "-=0.14");
+
+          if (timeline.duration() > 1.2) {
+            timeline.timeScale(timeline.duration() / 1.2);
+          }
+        };
+
+        const heroOut = () => {
+          gsap.to(heroTargets, {
+            opacity: 0,
+            y: isMobile ? -10 : -16,
+            duration: isMobile ? 0.22 : 0.28,
+            stagger: 0.015,
+            ease: "power2.out",
+            overwrite: "auto",
+          });
+        };
 
         const revealSection = (target: Element) => {
           if (target.classList.contains("motion-in")) return;
           target.classList.add("motion-in");
-
           gsap.fromTo(
             target,
             { opacity: 0, y: revealY },
-            { opacity: 1, y: 0, duration: revealDuration, ease: "power2.out" },
+            {
+              opacity: 1,
+              y: 0,
+              duration: revealDuration,
+              ease: "power2.out",
+              overwrite: "auto",
+            },
           );
 
           const items = target.querySelectorAll(":scope [data-motion='reveal-item']");
@@ -107,6 +127,7 @@ export function PortfolioMotion() {
                 stagger: isMobile ? 0.04 : 0.07,
                 ease: "power2.out",
                 delay: 0.08,
+                overwrite: "auto",
               },
             );
           }
@@ -123,6 +144,7 @@ export function PortfolioMotion() {
                 stagger: isMobile ? 0.05 : 0.08,
                 ease: "power2.out",
                 delay: 0.1,
+                overwrite: "auto",
               },
             );
 
@@ -139,13 +161,41 @@ export function PortfolioMotion() {
                   stagger: 0.025,
                   ease: "power2.out",
                   delay: 0.14 + index * 0.04,
+                  overwrite: "auto",
                 },
               );
             });
           }
         };
 
+        const hideSection = (target: Element) => {
+          if (!target.classList.contains("motion-in")) return;
+          target.classList.remove("motion-in");
+
+          const childItems = target.querySelectorAll(
+            ":scope [data-motion='reveal-item'], :scope [data-motion='stack-card'], :scope [data-motion='stack-chip']",
+          );
+
+          gsap.to(childItems, {
+            opacity: 0,
+            y: isMobile ? -8 : -12,
+            duration: isMobile ? 0.18 : 0.24,
+            stagger: 0.01,
+            ease: "power2.out",
+            overwrite: "auto",
+          });
+
+          gsap.to(target, {
+            opacity: 0,
+            y: isMobile ? -12 : -18,
+            duration: isMobile ? 0.22 : 0.28,
+            ease: "power2.out",
+            overwrite: "auto",
+          });
+        };
+
         const revealWorkbench = (target: Element) => {
+          if (target.hasAttribute("data-workbench-live")) return;
           target.setAttribute("data-workbench-live", "true");
 
           const rows = target.querySelectorAll("[data-motion='workbench-row']");
@@ -161,6 +211,7 @@ export function PortfolioMotion() {
               stagger: isMobile ? 0.03 : 0.05,
               ease: "power2.out",
               delay: 0.12,
+              overwrite: "auto",
               onComplete: () => {
                 rows.forEach((row) => row.classList.add("motion-in"));
               },
@@ -168,12 +219,57 @@ export function PortfolioMotion() {
           );
         };
 
+        const hideWorkbench = (target: Element) => {
+          target.removeAttribute("data-workbench-live");
+          const rows = target.querySelectorAll("[data-motion='workbench-row']");
+          rows.forEach((row) => row.classList.remove("motion-in"));
+          gsap.to(rows, {
+            opacity: 0,
+            x: isMobile ? 6 : 8,
+            duration: 0.2,
+            stagger: 0.01,
+            ease: "power2.out",
+            overwrite: "auto",
+          });
+        };
+
+        gsap.set("[data-motion='nav']", { opacity: 1, y: 0 });
+        gsap.from("[data-motion='nav']", { opacity: 0, y: -10, duration: 0.32, ease: "power2.out" });
+        gsap.set("[data-motion='metric-item']", { opacity: 1, y: 0 });
+        gsap.from("[data-motion='metric-item']", {
+          opacity: 0,
+          y: 14,
+          duration: 0.3,
+          stagger: heroStagger,
+          ease: "power2.out",
+          delay: 0.7,
+        });
+        heroIn();
+
+        const hero = document.querySelector(".hero");
+        if (hero) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && entry.intersectionRatio > 0.18) {
+                heroIn();
+              } else if (!entry.isIntersecting || entry.intersectionRatio < 0.08) {
+                heroOut();
+              }
+            });
+          }, REVEAL_OPTIONS);
+
+          observer.observe(hero);
+          observers.push(observer);
+        }
+
         document.querySelectorAll("[data-motion='reveal']").forEach((section) => {
           const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
-              if (!entry.isIntersecting) return;
-              observer.unobserve(entry.target);
-              revealSection(entry.target);
+              if (entry.isIntersecting && entry.intersectionRatio > 0.18) {
+                revealSection(entry.target);
+              } else if (!entry.isIntersecting || entry.intersectionRatio < 0.08) {
+                hideSection(entry.target);
+              }
             });
           }, REVEAL_OPTIONS);
 
@@ -184,9 +280,11 @@ export function PortfolioMotion() {
         document.querySelectorAll("[data-workbench]").forEach((workbench) => {
           const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
-              if (!entry.isIntersecting) return;
-              observer.unobserve(entry.target);
-              revealWorkbench(entry.target);
+              if (entry.isIntersecting && entry.intersectionRatio > 0.18) {
+                revealWorkbench(entry.target);
+              } else if (!entry.isIntersecting || entry.intersectionRatio < 0.08) {
+                hideWorkbench(entry.target);
+              }
             });
           }, REVEAL_OPTIONS);
 

@@ -14,5 +14,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const jsonLd = { "@context": "https://schema.org", "@type": "Person", name: "Fady Wafa Nagy", jobTitle: "Frontend Software Engineer", url: "https://www.linkedin.com/in/fady-wafa/", sameAs: ["https://github.com/fady-wafaa", "https://www.linkedin.com/in/fady-wafa/"] };
-  return <html lang="en"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />{children}</body></html>;
+  const themeScript = `try{const t=localStorage.getItem("portfolio-theme");const p=window.matchMedia("(prefers-color-scheme: light)").matches;if(t==="light"||(!t&&p)){document.documentElement.classList.add("light")}}catch{}`;
+
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        {children}
+      </body>
+    </html>
+  );
 }

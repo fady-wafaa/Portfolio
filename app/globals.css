@@ -13,6 +13,18 @@
   --red: #ff6b66;
   --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
+html.light {
+  --bg: #f6f8fb;
+  --bg2: #ffffff;
+  --panel: #ffffff;
+  --panel2: #eef3f7;
+  --line: #d7e0e8;
+  --text: #0b1720;
+  --muted: #5b6a76;
+  --cyan: #007e8c;
+  --green: #0d9660;
+  --red: #d94841;
+}
 * {
   box-sizing: border-box;
 }
@@ -191,6 +203,9 @@ summary:focus-visible {
   padding: 0;
   background: rgba(255, 255, 255, 0.025);
 }
+.theme-toggle {
+  flex-shrink: 0;
+}
 
 .nav-shell {
   position: sticky;
@@ -216,7 +231,7 @@ summary:focus-visible {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 24px;
+  gap: 10px;
 }
 .brand {
   display: flex;
@@ -256,7 +271,7 @@ summary:focus-visible {
 .nav-center {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 10px;
   min-width: 0;
   overflow: hidden;
 }
@@ -345,6 +360,17 @@ summary:focus-visible {
   padding: 10px;
   color: #bec7cd;
   font: 600 12px var(--mono);
+}
+.mobile-menu button {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 10px;
+  color: #bec7cd;
+  font: 600 12px var(--mono);
+  text-align: left;
+  cursor: pointer;
 }
 
 .hero {
@@ -1107,7 +1133,11 @@ summary:focus-visible {
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, rgba(0, 217, 232, 0.85), rgba(0, 217, 232, 0.08));
+  background: linear-gradient(
+    90deg,
+    rgba(0, 217, 232, 0.85),
+    rgba(0, 217, 232, 0.08)
+  );
   opacity: 0.55;
   transition: opacity 0.22s ease;
 }
@@ -1521,7 +1551,9 @@ html.has-js:not(.reduced-motion) [data-motion="reveal-item"]:not(.motion-in),
 html.has-js:not(.reduced-motion) [data-motion="stack-card"]:not(.motion-in),
 html.has-js:not(.reduced-motion) [data-motion="stack-chip"]:not(.motion-in),
 html.has-js:not(.reduced-motion) [data-motion="workbench-row"]:not(.motion-in),
-html.has-js:not(.reduced-motion) [data-workbench]:not([data-workbench-live]) [data-motion="workbench-row"] {
+html.has-js:not(.reduced-motion)
+  [data-workbench]:not([data-workbench-live])
+  [data-motion="workbench-row"] {
   opacity: 0;
 }
 html.reduced-motion [data-motion],
@@ -1537,6 +1569,131 @@ html.reduced-motion [data-workbench-live] .map-live .nodes circle,
 html.reduced-motion [data-workbench-live] .map-live .zones path,
 html.reduced-motion [data-workbench-live] .map-live .clusters circle {
   animation: none !important;
+}
+html.light body,
+html.light .section-grid,
+html.light .section-darker,
+html.light .metrics-band {
+  background-color: var(--bg);
+  color: var(--text);
+}
+html.light .section,
+html.light .contact-section,
+html.light .footer,
+html.light .metrics-band {
+  border-color: #dce5ec;
+}
+html.light .section-grid {
+  background-image:
+    linear-gradient(rgba(10, 24, 34, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 24, 34, 0.055) 1px, transparent 1px);
+}
+html.light .nav-shell {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom-color: #dce5ec;
+}
+html.light .nav-shell.nav-scrolled {
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom-color: rgba(0, 126, 140, 0.24);
+}
+html.light .brand small,
+html.light .nav-status,
+html.light .nav-links a,
+html.light .hero-lede,
+html.light .section-copy,
+html.light .system-row-copy small,
+html.light .case-card p,
+html.light .result-row span,
+html.light .workbench-top,
+html.light .workbench footer,
+html.light .workbench-caption,
+html.light .evolution p,
+html.light .architecture-notes ul,
+html.light .timeline ul,
+html.light .performance-flow p,
+html.light .performance-cards p,
+html.light .timeline > article > p,
+html.light .stack-card-subtitle,
+html.light .philosophy-grid p,
+html.light .contact-card > div > p:not(.eyebrow),
+html.light .availability,
+html.light .footer span,
+html.light .footer small,
+html.light .footer nav,
+html.light .mobile-menu a,
+html.light .mobile-menu button {
+  color: var(--muted);
+}
+html.light .button-ghost,
+html.light .icon-button,
+html.light .nav-status,
+html.light .status-chip {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: var(--line);
+}
+html.light .button-ghost:hover,
+html.light .icon-button:hover {
+  background: #eef7f8;
+  border-color: rgba(0, 126, 140, 0.34);
+}
+html.light .brand-mark,
+html.light .button-primary {
+  color: #ffffff;
+  background: var(--cyan);
+  border-color: var(--cyan);
+}
+html.light .hero-glow {
+  background:
+    radial-gradient(
+      circle at 78% 38%,
+      rgba(0, 126, 140, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(circle at 12% 62%, rgba(13, 150, 96, 0.07), transparent 28%);
+}
+html.light .system-card,
+html.light .case-card,
+html.light .workbench,
+html.light .evolution article,
+html.light .architecture-notes article,
+html.light .performance-flow article,
+html.light .performance-cards article,
+html.light .stack-card,
+html.light .philosophy-grid article,
+html.light .contact-card,
+html.light .mobile-menu > div {
+  border-color: var(--line);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 18px 60px rgba(22, 40, 52, 0.1);
+}
+html.light .system-card-head span,
+html.light .system-row-copy strong,
+html.light .workbench-top span,
+html.light .workbench-sidebar strong,
+html.light .timeline h3,
+html.light .stack-card h3,
+html.light .performance-flow h3,
+html.light .performance-cards h3,
+html.light .philosophy-grid h3,
+html.light .case-card h3,
+html.light .evolution h3 {
+  color: var(--text);
+}
+html.light .system-row,
+html.light .result-row span,
+html.light .tag-row span,
+html.light .stack-chips span,
+html.light .map-label,
+html.light .workbench-sidebar,
+html.light .workbench-sidebar.right,
+html.light .workbench-top,
+html.light .workbench footer,
+html.light .workbench-caption {
+  border-color: var(--line);
+  background: rgba(246, 250, 252, 0.82);
+}
+html.light .mobile-menu summary span {
+  background: var(--text);
 }
 @media (prefers-reduced-motion: reduce) {
   html {
